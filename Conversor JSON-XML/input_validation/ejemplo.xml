@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<paciente>
+    <nombre>Dolores</nombre>
+    <apellidos>García</apellidos>
+    <sexo>M</sexo>
+    <anamnesis>
+        <cita>
+            <peso>60</peso>
+            <talla>160</talla>
+            <observaciones lang="en">asdf</observaciones>
+        </cita>
+        <cita>
+            <peso>59</peso>
+            <talla>160</talla>
+        </cita>
+    </anamnesis>
+</paciente>
+

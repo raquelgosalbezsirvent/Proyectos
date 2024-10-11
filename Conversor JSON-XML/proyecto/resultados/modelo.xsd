@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--Comentarios-->
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<!--existe un atributo dentro del schema llamado targetNamespace que dicta que todas las etiquetas (nombre, apellidos, etc.) son definidos bajo las "normas" de lo definido en ese atributo (ej: UA, SI)-->
+    
+    <xs:element name="paciente">
+        <xs:complexType> <!--Todo lo que no sea un elemento simple (texto, numero, etc): agrupaciones, listas, etc.-->
+            <xs:sequence>
+				<xs:element name="datos_personales">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="nombre" type="xs:string"/> 
+			                <xs:element name="num_paciente" type="xs:integer"/>
+			                <xs:element name="fech_nacimiento" type="xs:date"/> 
+			                <xs:element name="estado_civil" type="civil"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="vacuna">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="codigo_CVX" type="xs:string"/>
+							<xs:element name="fecha_administracion" type="xs:date"/>
+							<xs:element name="hora_administracion" type="xs:time"/>
+							<xs:element name ="cantidad_administrada">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base ="xs:integer">
+											<xs:attribute name ="unidad" type ="uni"/>
+										</xs:extension >
+									</xs:simpleContent >
+								</xs:complexType >
+							</xs:element >
+							<xs:element name="expiracion" type="xs:date"/>
+							<xs:element name="fabricante" type="xs:string"/>
+							<xs:element name="lote" type="xs:integer"/>
+							<xs:element name="observaciones" maxOccurs="unbounded">
+                                <xs:complexType mixed="true"> <!--el mixed=true significa que puedo tener texto y otras cosas-->
+                                    <xs:attribute name="idioma" type="typelang"/>                                             
+                                </xs:complexType>
+                            </xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="visita" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="fecha" type="xs:date" minOccurs="1"/>
+							<xs:element name="incidencias" type="xs:string" maxOccurs="3"/>
+							<xs:element name="motivo" type="xs:string" minOccurs="1"/>
+							<xs:element name="facultativo" type="xs:string" minOccurs="1"/>
+							<xs:element name="seguro" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>	
+		</xs:complexType>
+	</xs:element>	
+	
+  <xs:simpleType name="civil">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Soltero"/>
+      <xs:enumeration value="Casado"/>
+      <xs:enumeration value="Unión de hecho"/>
+      <xs:enumeration value="Separado"/>
+      <xs:enumeration value="Divorciado"/>
+      <xs:enumeration value="Viudo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+<xs:simpleType name="uni">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="mg"/>
+      <xs:enumeration value="mg/cc"/>
+      <xs:enumeration value="mcg"/>
+      <xs:enumeration value="g"/>
+      <xs:enumeration value="ml"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typelang">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="esp"/>
+      <xs:enumeration value="val"/>
+      <xs:enumeration value="ing"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

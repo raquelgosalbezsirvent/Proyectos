@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<paciente>
+  <datos_personales>
+    <nombre>Raquel</nombre>
+    <num_paciente>224</num_paciente>
+    <fech_nacimiento>2004-03-11</fech_nacimiento>
+    <estado_civil>Soltero</estado_civil>
+  </datos_personales>
+  <vacuna>
+    <codigo_CVX>1234</codigo_CVX>
+    <fecha_administracion>2024-02-06</fecha_administracion>
+    <hora_administracion>00:00:00</hora_administracion>
+    <cantidad_administrada unidad="mg">14</cantidad_administrada>
+    <expiracion>2024-02-06</expiracion>
+    <fabricante>JIJONA</fabricante>
+    <lote>1234567890</lote>
+    <observaciones idioma="ing">no</observaciones>
+  </vacuna>
+  <visita>
+    <fecha>2024-02-06</fecha>
+    <incidencias>ninguna</incidencias>
+    <incidencias>seguro</incidencias>
+    <motivo>me apetecia</motivo>
+    <facultativo>Doctor Guillermo</facultativo>
+    <seguro>nulo</seguro>
+  </visita>
+  <visita>
+    <fecha>2024-02-29</fecha>
+    <incidencias>muchas</incidencias>
+    <motivo>jeje</motivo>
+    <facultativo>Doctor Fernando</facultativo>
+    <seguro>no quiere</seguro>
+  </visita>
+</paciente>

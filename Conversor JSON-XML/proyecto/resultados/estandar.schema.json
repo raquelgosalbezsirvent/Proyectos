@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type" : "array",
+    "items" : {
+        "type" : "object",
+        "properties" : {
+            "personal_data" : {
+                "type" : "object",
+                "properties" : {
+                    "id" :                          { "type" : "number" },
+                    "name" :                        { "type" : "string" },
+                    "lastname" :                    { "type" : "string" },
+                    "birth_date" :                  { "type" : "string", "format" : "date" },
+                    "marital_status" : {
+                        "type" : "string",
+                        "enum" : ["unassigned", "married", "single", "divorced", "widowed", "separated", "domestic partner"],
+                        "description" : ""
+                    }
+                },
+                "additionalProperties" : false
+            },
+            "immunization" : {
+		"type": "array",
+		"items" : {
+                    "type" : "object",
+                    "properties" : {
+			"cvx_code" :             { "type" : "number" },
+                        "date" :                 { "type" : "string", "format" : "date" },
+                        "amount" :               { "type" : "string" },
+                        "expiration_date" :      { "type" : "string", "format" : "date" },
+                        "manufacturer" :         { "type" : "string" },
+                        "lot_number" :           { "type" : "string" },
+                        "notes" :                { "type" : "string" }
+                    },
+                    "additionalProperties" : false
+		}
+            },
+            "visit_history" : {
+                "type" : "array",
+                "items" : {
+                    "type" : "object",
+                    "properties" : {
+                        "date" :                { "type" : "string", "format" : "date" },
+			"issues" : {
+			    "type" : "array",
+			    "items" : {"type" : "string"}
+			},
+                        "reason" :              { "type" : "string" },
+                        "provider" :            { "type" : "string" },
+                        "insurance" :           { "type" : "string" }
+                    },
+                    "additionalProperties" : false,
+                    "required" : ["date", "reason", "provider"]
+                }
+            }
+        },
+        "additionalProperties" : false
+    }
+}

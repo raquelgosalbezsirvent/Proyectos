@@ -1,0 +1,1306 @@
+﻿<!DOCTYPE html><html><head>
+<link rel="icon" data-savepage-href="http://localhost:8000/favicon.ico" href="">
+    <meta charset="utf-8">
+    <style data-savepage-href="css/docson.css">/*
+ * Copyright 2013 Laurent Bovet <laurent.bovet@windmaster.ch>
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.docson {
+    font-family: 'Droid Sans',verdana,helvetica;
+    font-size: 13px;
+    padding: 6px 6px 6px 6px;
+}
+
+.docson .box {
+    position: relative;
+    float: left;
+    width:100%;
+    background-color:rgba(255, 255, 255, 0.2);
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding-bottom: 10px;
+    -moz-box-shadow:    1px 1px 1px darkgray;
+    -webkit-box-shadow: 1px 1px 1px darkgray;
+    box-shadow:         1px 1px 1px darkgray;
+}
+
+.docson .expand-button {
+    position: absolute;
+    margin-top: 15px;
+    padding: 2px;
+    right: 2px;
+    float: right;
+    width: 18px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 15px;
+    color: darkgray;
+    display: none;
+}
+
+.docson .source-button {
+    position: absolute;
+    padding: 2px;
+    margin-top: 3px;
+    right: 2px;
+    width: 18px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 10px;
+    color: darkgray;
+    display: none;
+}
+
+.docson .box-header {
+    padding: 6px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 1px solid lightgrey;
+    background: whitesmoke;
+   /* background: -webkit-linear-gradient(ghostwhite, whitesmoke, whitesmoke, gainsboro);
+    background: -moz-linear-gradient(ghostwhite, whitesmoke, whitesmoke, gainsboro);*/
+}
+
+.docson .box-name {
+    color: darkblue;
+    padding: 5px 40px 2px 3px;
+    float: left;
+    width:100%;
+}
+
+.docson .title {
+    margin-top: -3px;
+    font-size: 120%;
+}
+
+.docson .link {
+    text-decoration: underline;
+}
+
+.docson .box-description {
+    color: dimgray;
+    float: left;
+    width:100%;
+}
+
+.docson .end {
+    clear: both;
+}
+
+.docson .error {
+    color: red;
+}
+
+.docson .box-body {
+    padding-left: 10px;
+    padding-right: 28px;
+    clear: both;
+}
+
+.docson .box-1 {
+    background: whitesmoke;/*
+    background: -webkit-linear-gradient(ghostwhite, whitesmoke, whitesmoke, gainsboro);
+    background: -moz-linear-gradient(ghostwhite, whitesmoke, whitesmoke, gainsboro);*/
+}
+
+.docson .box-2 {
+    background: beige;
+    background: -webkit-linear-gradient(white, beige, beige, gainsboro);
+    background: -moz-linear-gradient(white, beige, beige, gainsboro);
+}
+
+.docson .box-3 {
+    background: azure;
+    background: -webkit-linear-gradient(white, azure, azure, gainsboro);
+    background: -moz-linear-gradient(white, azure, azure, gainsboro);
+}
+
+.docson .box-4 {
+    background: mistyrose;
+    background: -webkit-linear-gradient(white, mistyrose, mistyrose, gainsboro);
+    background: -moz-linear-gradient(white, mistyrose, mistyrose, gainsboro);
+}
+
+.docson .box-5 {
+    background: #ddffee;
+    background: -webkit-linear-gradient(white, #ddffee, #ddffee, gainsboro);
+    background: -moz-linear-gradient(white, #ddffee, #ddffee, gainsboro);
+}
+
+.docson .box-6 {
+    background: ghostwhite;
+    background: -webkit-linear-gradient(white, ghostwhite, ghostwhite, gainsboro);
+    background: -moz-linear-gradient(white, ghostwhite, ghostwhite, gainsboro);
+}
+
+.docson .box-7 {
+    background: lavenderblush;
+    background: -webkit-linear-gradient(white, lavenderblush, lavenderblush, gainsboro);
+    background: -moz-linear-gradient(white, lavenderblush, lavenderblush, gainsboro);
+}
+
+.docson .box-8 {
+    background: aliceblue;
+    background: -webkit-linear-gradient(white, aliceblue, aliceblue, gainsboro);
+    background: -moz-linear-gradient(white, aliceblue, aliceblue, gainsboro);
+}
+
+.docson .signature {
+    padding-top: 5px;
+    clear: left;
+}
+
+.docson .signature-header {
+    padding-top: 3px;
+    height: 20px;
+    line-height: 24px;
+}
+
+.docson .property-name {
+    float: left;
+    width:100%;
+    font-family: "Lucida Console", Monaco, monospace;
+    min-width: 130px;
+}
+
+.docson .required {
+    font-weight: bold;
+}
+
+.docson .type-keyword {
+    font-size: 80%;
+    color: dimgray;
+}
+
+.docson .type-pattern {
+    font-size: 80%;
+    color: darkolivegreen;
+}
+
+.docson .type-enum {
+    color: purple;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 90%;
+    padding-left: 2px;
+}
+
+.docson .type-default {
+    color: darkslategrey;
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.docson .signature-type {
+    padding-left: 6px;
+    float: left;
+    width:100%;
+    min-width: 160px;
+}
+
+.docson .signature-type-any {
+    font-style: italic;
+}
+
+.docson .signature-type-string {
+    color: green;
+}
+
+.docson .signature-type-number {
+    color: blue;
+}
+
+.docson .signature-type-integer {
+    color: blueviolet;
+}
+
+.docson .signature-type-boolean {
+    color: orangered;
+}
+
+.docson .signature-type-null {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: red;
+}
+
+.docson .signature-type-date-time {
+    color: #224466;
+}
+
+.docson .signature-type-email {
+    color: cornflowerblue;
+}
+
+.docson .signature-type-hostname {
+    color: darkolivegreen;
+}
+
+.docson .signature-type-ipv6 {
+    color: darkslateblue;
+}
+
+.docson .signature-type-ipv4 {
+    color: indigo;
+}
+
+.docson .signature-type-uri {
+    color: saddlebrown;
+}
+
+.docson .signature-button {
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    border: 1px solid lightgrey;
+    -moz-border-radius: 4px;
+}
+
+.docson .signature-type-ref {
+    color: darkblue;
+}
+
+.docson .signature-type-expanded {
+    padding: 5px 3px 3px 5px;
+    vertical-align: -1px;
+    opacity: 0.6;
+    -moz-box-shadow:    inset 1px 1px 1px darkgray;
+    -webkit-box-shadow: inset 1px 1px 1px darkgray;
+    box-shadow:         inset 1px 1px 1px darkgray;
+}
+
+.docson .signature-description {
+    padding-left: 6px;
+    padding-bottom: 3px;
+    color: dimgray;
+    float: left;
+    width:100%;
+}
+
+.docson .signature-box-container {
+    clear: both;
+}
+
+.docson .box-container {
+    float: left;
+    width:100%;
+    padding-top: 4px;
+    padding-left: 8px;
+    display: none;
+}
+
+.docson .button {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.docson .button:hover {
+    color: darkred;
+}
+
+@media all and (min-width: 20px) and (max-width: 500px) {
+    .docson .property-name {
+        min-width: 0px;
+    }
+    .docson .signature-type {
+        min-width: 0px;
+    }
+    .docson .source {
+        width: 100%;
+    }
+    .docson .box-container, .box {
+        width: 100%;
+    }
+}
+
+.docson .desc {
+    padding-left: 6px;
+    line-height: 17px;
+}
+
+.docson .desc p {
+    margin: 0;
+    margin-top: 3px;
+}
+
+.docson .desc code {
+    color: purple;
+    font-size: 90%;
+}
+
+
+.docson .desc table {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-collapse:collapse;
+}
+
+.docson .desc th {
+    padding: 0px;
+    font-size: 80%;
+    font-weight: normal;
+    background: rgba(231, 231, 231, 0.5);
+}
+
+.docson .desc table,
+.docson .desc th,
+.docson .desc td {
+    border: 1px solid lightgrey;
+}
+
+.docson .desc tr > td {
+    padding: 2px 6px 2px 6px;
+}
+
+.docson .desc h1 {
+    font-size: 120%;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+.docson .desc h2 {
+    font-size: 115%;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+.docson .desc h3 {
+    font-size: 110%;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+.docson .desc h4 {
+    font-size: 100%;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+.docson .desc pre {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding: 4px;
+    margin: 3px 0px;
+}
+
+.docson .desc ul {
+    padding-left: 16px;
+    margin: 3px 0px;
+}
+
+.docson .desc ol {
+    padding-left: 16px;
+    margin: 3px 0px;
+}
+
+.docson .desc blockquote {
+    margin: 3px 0px 3px 10px;
+    padding-left: 6px;
+    border-left: 1px solid lightgray;
+}
+
+.docson .desc img {
+    vertical-align: middle;
+}
+
+.docson .desc hr {
+    border: 0;
+    height: 1px;
+    background: lightgrey;
+    color: lightgrey;
+    width: 50%;
+}
+
+.docson .source {
+    display: none;
+    padding-left: 16px;
+    padding-right: 30px;
+}
+
+.docson .json, .json-schema {
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.docson .json-punctuation {
+    font-weight: bold;
+}
+
+.docson .json-null, .json-true, .json-false {
+    font-weight: bold;
+}
+
+.docson .json-true {
+    color: #080;
+}
+
+.docson .json-false {
+    color: #800;
+}
+
+.docson .json-object-key {
+    color: #246;
+}
+
+.docson .json-keyword {
+    font-weight: bold;
+    color: #036;
+}
+
+.docson .json-number {
+    font-weight: bold;
+    color: #660;
+}
+
+.docson .json-string {
+    color: #800;
+}
+
+.docson .json-schema-map > .json-object-key {
+    color: #080;
+    font-style: italic;
+}
+
+</style>
+    <style>
+        body {
+            font-family: verdana, helvetica;
+        }
+
+        #form {
+            display: none;
+        }
+
+        #form input[type=text] {
+            border-radius: 6px;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+        }
+
+        .embedded {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+
+<style id="savepage-cssvariables">
+  :root {
+  }
+</style>
+<script id="savepage-shadowloader" type="text/javascript">
+  "use strict";
+  window.addEventListener("DOMContentLoaded",
+  function(event) {
+    savepage_ShadowLoader(5);
+  },false);
+  function savepage_ShadowLoader(c){createShadowDOMs(0,document.documentElement);function createShadowDOMs(a,b){var i;if(b.localName=="iframe"||b.localName=="frame"){if(a<c){try{if(b.contentDocument.documentElement!=null){createShadowDOMs(a+1,b.contentDocument.documentElement)}}catch(e){}}}else{if(b.children.length>=1&&b.children[0].localName=="template"&&b.children[0].hasAttribute("data-savepage-shadowroot")){b.attachShadow({mode:"open"}).appendChild(b.children[0].content);b.removeChild(b.children[0]);for(i=0;i<b.shadowRoot.children.length;i++)if(b.shadowRoot.children[i]!=null)createShadowDOMs(a,b.shadowRoot.children[i])}for(i=0;i<b.children.length;i++)if(b.children[i]!=null)createShadowDOMs(a,b.children[i])}}}
+</script>
+<meta name="savepage-url" content="http://localhost:8000/docson-master/public/#estandar.schema.json">
+<meta name="savepage-title" content="">
+<meta name="savepage-pubdate" content="Unknown">
+<meta name="savepage-from" content="http://localhost:8000/docson-master/public/#estandar.schema.json">
+<meta name="savepage-date" content="Thu Feb 16 2023 18:35:36 GMT+0100 (hora estándar de Europa central)">
+<meta name="savepage-state" content="Standard Items; Retain cross-origin frames; Merge CSS images; Remove unsaved URLs; Load lazy images in existing content; Max frame depth = 5; Max resource size = 50MB; Max resource time = 10s;">
+<meta name="savepage-version" content="28.8">
+<meta name="savepage-comments" content="">
+  </head>
+<body>
+<div id="form" style="display: none;">
+    Please enter a schema URL:
+    <input type="text" id="url" size="60" value="estandar.schema.json">
+</div>
+<div id="doc" class="docson"> <div class="box">
+    <div class="box-header box-">
+        <div class="box-title" ref="<root>">
+            
+            <div class="box-description desc"></div>
+            <div class="end"></div>
+        </div>
+    </div>
+     <div class="source-button button" title="Source" style="display: block; opacity: 0;">{}</div>
+    <div class="box-body">
+        <div class="expand-button button" title="Collapse all" style="display: block; opacity: 0;" expanded="true"> - </div>
+        <div class="signature">
+            <div class="signature-header">
+                <div class="signature-type">
+                            <span class="type-keyword">array</span>
+        <span class="type-keyword"></span>
+                <span boxid="1" class="box-1 signature-type-object signature-button signature-type-expandable button signature-type-expanded">object</span>
+
+                </div>
+            </div>
+            <div class="signature-box-container">
+                <div class="box-container" boxid="1" style="display: block;">
+                     <div class="box">
+    <div class="box-header box-1">
+        <div class="box-title" ref="">
+            
+            <div class="box-description desc"></div>
+            <div class="end"></div>
+        </div>
+    </div>
+     <div class="source-button button" title="Source" style="display: block; opacity: 0;">{}</div>
+    <div class="box-body">
+        <div class="expand-button button" title="Collapse all" style="display: block; opacity: 0;" expanded="true"> - </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">personal_data</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+                <span boxid="1" class="box-1 signature-type-object signature-button signature-type-expandable button signature-type-expanded">object</span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                    <div class="box-container" boxid="1" style="display: block;">
+                         <div class="box">
+    <div class="box-header box-1">
+        <div class="box-title" ref="">
+            
+            <div class="box-description desc"></div>
+            <div class="end"></div>
+        </div>
+    </div>
+     <div class="source-button button" title="Source" style="display: none;">{}</div>
+    <div class="box-body">
+        <div class="expand-button button" title="Collapse all" style="display: none;" expanded="true"> - </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">id</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-number">
+               number
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">name</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">lastname</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">birth_date</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-date">
+               date
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">marital_status</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword">enum</span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+                <span class="type-enum">unassigned</span>
+                <span class="type-enum">married</span>
+                <span class="type-enum">single</span>
+                <span class="type-enum">divorced</span>
+                <span class="type-enum">widowed</span>
+                <span class="type-enum">separated</span>
+                <span class="type-enum">domestic partner</span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+
+
+    </div>
+    <div class="source">
+        <pre class="json-schema">{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "birth_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "marital_status": {
+      "type": "string",
+      "enum": [
+        "unassigned",
+        "married",
+        "single",
+        "divorced",
+        "widowed",
+        "separated",
+        "domestic partner"
+      ],
+      "description": ""
+    }
+  },
+  "additionalProperties": false
+}</pre>
+    </div>
+</div>
+<div class="end"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">immunization</div>
+                    <div class="signature-type">
+                                <span class="type-keyword">array</span>
+        <span class="type-keyword"></span>
+                <span boxid="1" class="box-1 signature-type-object signature-button signature-type-expandable button signature-type-expanded">object</span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                    <div class="box-container" boxid="1" style="display: block;">
+                         <div class="box">
+    <div class="box-header box-1">
+        <div class="box-title" ref="">
+            
+            <div class="box-description desc"></div>
+            <div class="end"></div>
+        </div>
+    </div>
+     <div class="source-button button" title="Source" style="display: block; opacity: 0;">{}</div>
+    <div class="box-body">
+        <div class="expand-button button" title="Collapse all" style="display: block; opacity: 0;" expanded="true"> - </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">cvx_code</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-number">
+               number
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">date</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-date">
+               date
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">amount</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">expiration_date</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-date">
+               date
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">manufacturer</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">lot_number</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">notes</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+
+
+    </div>
+    <div class="source">
+        <pre class="json-schema">{
+  "type": "object",
+  "properties": {
+    "cvx_code": {
+      "type": "number"
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "expiration_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "lot_number": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}</pre>
+    </div>
+</div>
+<div class="end"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">visit_history</div>
+                    <div class="signature-type">
+                                <span class="type-keyword">array</span>
+        <span class="type-keyword"></span>
+                <span boxid="1" class="box-1 signature-type-object signature-button signature-type-expandable button signature-type-expanded">object</span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                    <div class="box-container" boxid="1" style="display: block;">
+                         <div class="box">
+    <div class="box-header box-1">
+        <div class="box-title" ref="">
+            
+            <div class="box-description desc"></div>
+            <div class="end"></div>
+        </div>
+    </div>
+     <div class="source-button button" title="Source" style="display: none;">{}</div>
+    <div class="box-body">
+        <div class="expand-button button" title="Collapse all" style="display: none;" expanded="true"> - </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name required">date</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-date">
+               date
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">issues</div>
+                    <div class="signature-type">
+                                <span class="type-keyword">array</span>
+        <span class="type-keyword"></span>
+            <span class="signature-type-string">
+                string
+            </span>
+            <span class="type-keyword">
+                
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name required">reason</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name required">provider</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+            <div class="signature">
+                <div class="signature-header">
+                    <div class="property-name ">insurance</div>
+                    <div class="signature-type">
+                                    <span class="type-keyword"></span>
+           <span class="signature-type-string">
+               string
+            </span>
+            <span class="type-keyword">
+               
+            </span>
+
+                    </div>
+                    <div class="signature-description desc"></div>
+                </div>
+                <div class="signature-box-container">
+                </div>
+            </div>
+
+
+    </div>
+    <div class="source">
+        <pre class="json-schema">{
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reason": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "insurance": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "date",
+    "reason",
+    "provider"
+  ]
+}</pre>
+    </div>
+</div>
+<div class="end"></div>
+
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+    <div class="source">
+        <pre class="json-schema">{
+  "type": "object",
+  "properties": {
+    "personal_data": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "lastname": {
+          "type": "string"
+        },
+        "birth_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "marital_status": {
+          "type": "string",
+          "enum": [
+            "unassigned",
+            "married",
+            "single",
+            "divorced",
+            "widowed",
+            "separated",
+            "domestic partner"
+          ],
+          "description": ""
+        }
+      },
+      "additionalProperties": false
+    },
+    "immunization": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "cvx_code": {
+            "type": "number"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "expiration_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "manufacturer": {
+            "type": "string"
+          },
+          "lot_number": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "visit_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reason": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "insurance": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "date",
+          "reason",
+          "provider"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}</pre>
+    </div>
+</div>
+<div class="end"></div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="source">
+        <pre class="json-schema">{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "personal_data": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "lastname": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "marital_status": {
+            "type": "string",
+            "enum": [
+              "unassigned",
+              "married",
+              "single",
+              "divorced",
+              "widowed",
+              "separated",
+              "domestic partner"
+            ],
+            "description": ""
+          }
+        },
+        "additionalProperties": false
+      },
+      "immunization": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "cvx_code": {
+              "type": "number"
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "amount": {
+              "type": "string"
+            },
+            "expiration_date": {
+              "type": "string",
+              "format": "date"
+            },
+            "manufacturer": {
+              "type": "string"
+            },
+            "lot_number": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "visit_history": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "issues": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "reason": {
+              "type": "string"
+            },
+            "provider": {
+              "type": "string"
+            },
+            "insurance": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "date",
+            "reason",
+            "provider"
+          ]
+        }
+      }
+    },
+    "additionalProperties": false
+  }
+}</pre>
+    </div>
+</div>
+<div class="end"></div>
+</div>
+<script data-savepage-type="" type="text/plain" data-savepage-src="./js/webpage.js"></script>
+
+
+</body></html>

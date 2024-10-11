@@ -1,0 +1,39 @@
+[
+    {
+        "personal_data" : {
+            "id" : 27,
+            "name" : "Pepe",
+            "lastname" : "García",
+            "birth_date" : "1975-03-21",
+            "marital_status": "single"
+        },
+
+        "immunization" : [
+            {
+                "cvx_code" : 207,
+                "date" : "2022-12-03",
+                "amount" : "80mg",
+                "expiration_date" : "2023-12-03",
+                "manufacturer" : "Moderna",
+                "lot_number" : "B-01580609",
+                "notes" : "ok"
+            }
+        ],
+
+        "visit_history" : [
+            {
+                "date" : "2018-02-15",
+                "issues" : ["Power outage", "Missing assistant"],
+                "reason" : "Eye Exam",
+                "provider" : "Dra. López",
+                "insurance" : "Mapfre"
+            },
+            {
+                "date" : "2019-03-15",
+                "issues" : [],
+                "reason" : "Dolor de cabeza",
+                "provider" : "Dr. Stone"
+            }
+        ]
+    }
+]

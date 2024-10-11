@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--Comentarios-->
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <xs:element name="paciente">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="apellidos" type="xs:string"/>
+                <xs:element name="sexo" type="typesex"/>
+                <xs:element name="anamnesis">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="cita" minOccurs="1" maxOccurs="10">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="peso" type="xs:integer"/>
+                                        <xs:element name="talla" type="xs:integer"/>
+                                        <xs:element name="observaciones" minOccurs="0">
+                                            <xs:complexType mixed="true">
+                                                <xs:attribute name="lang" type="typelang" use="required"/>                                             
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    
+
+  <xs:simpleType name="typesex">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="H"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="typelang">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="es"/>
+      <xs:enumeration value="va"/>
+      <xs:enumeration value="en"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+
+<!-- TODO
+- Definir elemento raiz obligatorio
+- Definir elementos necesarios en secuencia
+- Definir un tipo de dato entero para talla
+- Definir un tipo simple para sexo
+- Definir un atributo lang para observaciones
+- Requeridos y números de ocurrencias
+- ¿Cómo se podría estructurar mejor el código
+-->
