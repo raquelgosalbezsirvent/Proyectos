@@ -6,7 +6,7 @@ function PAINT
     paleta_colores = ...
         [1 .5  0  1  0  0 .8 .6 .6;      % r                 
          1 .5  0  0  1  0 .6 .8 .6;      % g
-         1 .5  0  0  0  1 .6 .6 .8]';    % b
+         1 .5  0  0  0  1 .6 .6 .8];    % b
     
     % contador para el numero de lineas
     cont_lineas = 0;
@@ -49,9 +49,9 @@ function PAINT
     % nombres de los ficheros de audio de los colores
     files_colores = ["audios/Blanco.m4a","audios/Gris.m4a","audios/Negro.m4a","audios/Rojo.m4a","audios/Verde.m4a","audios/Azul.m4a","audios/Rojopastel.m4a","audios/Verdepastel.m4a","audios/Azulpastel.m4a"];
 
-    % - - - INICIAR NORAXON Y PARÁMETROS DEL PAINT - - -
+    % - - - INICIAR NORAXON Y PARÁMETROS DEL PAINT - - - 
 
-    %[stream_config, sensor_selection] = noraxon_stream_init('127.0.0.1', '9220');
+    [stream_config, sensor_selection] = noraxon_stream_init('127.0.0.1', '9220');
     program_on  = 1;
     modo = 1;            % modo inicial (1 navegar, 2 pintar, 3 elegir color)
     indice_color = 3;    % indice del color inicial
@@ -77,18 +77,13 @@ function PAINT
     
     while program_on == 1
         % Recoger datos Noraxon
-        % Data = noraxon_stream_collect(stream_config, 0.3);
-        % samplingRate = 1500;
+        Data = noraxon_stream_collect(stream_config, 0.3);
+        samplingRate = 1500;
 
-        % flexion_dcha = movmean(abs(Data(1).samples(:)),samplingRate);
-        % extension_dcha = movmean(abs(Data(2).samples(:)),samplingRate);
-        % flexion_izq = movmean(abs(Data(3).samples(:)),samplingRate);
-        % extension_izq = movmean(abs(Data(4).samples(:)),samplingRate);
-
-        % Recoger datos de un archivo EMG
-        file = load('EMG 2 channel Wrist Flex_Ext_Raw.mat');
-        samplingRate = file.samplingRate;  % Accede a la variable deseada desde la estructura
-        Data = file.Data;
+        flexion_dcha = movmean(abs(Data(1).samples(:)),samplingRate);
+        extension_dcha = movmean(abs(Data(2).samples(:)),samplingRate);
+        flexion_izq = movmean(abs(Data(3).samples(:)),samplingRate);
+        extension_izq = movmean(abs(Data(4).samples(:)),samplingRate);
 
         flexion_dcha = movmean(abs(Data{2}),samplingRate);
         extension_dcha = movmean(abs(Data{3}),samplingRate);
