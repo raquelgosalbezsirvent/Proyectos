@@ -1,0 +1,45 @@
+/* tablas.css */
+
+/* Estilo general para tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+caption {
+    font-size: 24px; /* Tamaño del texto del título */
+    color: white; /* Color del texto */
+    background-color: #002851; /* Fondo del título */
+    padding: 10px; /* Espaciado alrededor del texto */
+}
+
+th {
+    background-color: #A5BCE5; /* Fondo de la fila de encabezados */
+    color: white; /* Color del texto */
+	text-align: center;
+	padding: 10px;
+}
+
+td {
+    color: #002851;
+    padding: 10px; /* Espaciado en las celdas */
+}
+
+tbody th:first-child {
+	text-align:left;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+
+tbody tr td:not(:first-child) {
+    text-align: center; /* Centrar texto en las celdas que no son la primera columna */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #F0F7FF;
+}

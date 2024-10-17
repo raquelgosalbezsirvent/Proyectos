@@ -1,0 +1,28 @@
+/* responsive.css */
+
+@media (min-width: 768px) {
+	.columnas {
+		max-width: 100%; /* Ancho máximo */
+		margin: 0 auto; /* Centrar el contenedor */
+		display: grid; /* Activar Grid */
+		grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
+		gap: 20px; /* Espacio entre columnas */
+		background-color: #A5BCE5;
+	}
+}
+
+@media (max-width: 768px) {
+	.titulo h1 {
+		font-size: 1em; /* Tamaño del texto */
+	}
+	
+	body {
+		font-size: 14px;
+	}
+	
+	iframe {
+		position: relative;
+		overflow: hidden;
+		max-width: 100%;
+	}
+}

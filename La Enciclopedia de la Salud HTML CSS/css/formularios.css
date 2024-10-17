@@ -1,0 +1,89 @@
+/* formularios.css */
+
+/* Estilos básicos para el formulario */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #fefefe;
+}
+
+.obligatorio {
+    color: #D63E3E;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, textarea, select {
+	margin-left: 23px;
+}
+
+.botones {
+	display: flex;
+	flex-direction: column; /* Apilar los botones uno encima del otro */
+    align-items: center;    /* Centrar los botones horizontalmente */
+    gap: 10px;              /* Espacio entre botones */
+}
+
+input[type="email"], input[type="text"], textarea {
+    width: 60%;
+	box-sizing: border-box; /* Asegura que el padding y borde no expandan el campo */
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+fieldset {
+	display: flex;
+	align-items: center;
+}
+
+input[type="radio"] {
+	margin-right: 20px;
+}
+
+input:focus, input:hover {
+	border-color: #00539C; /* Color azul para el borde en foco */
+    outline: none; /* Elimina el borde predeterminado */
+    box-shadow: 0 0 7px rgba(77, 121, 255, 0.5); /* Agrega sombra */
+}
+
+input[type="submit"] {
+    background-color: #4167DB;
+    color: white;
+	border: 2px solid #0040ff; /* Borde más oscuro */
+	border-radius: 5px; /*redondeado*/
+    padding: 10px 20px;
+	align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="submit"]:focus, input[type="submit"]:hover {
+	align-content: center;
+    background-color: #294394; /* Azul más oscuro al hacer hover */
+    border-color: #002080; /* Borde más oscuro */
+	box-shadow: 0 0 7px rgba(77, 121, 255, 0.5); /* Agrega sombra */
+}
+
+input[type="reset"] {
+	background-color: #CA3B3B; /* rojo claro */
+	color: white;
+	border: 2px solid #cc0000; /* borde más oscuro */
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* transicion suave */
+}
+	
+input[type="reset"]:focus, input[type="reset"]:hover {
+    background-color: #952929; /* rojo oscuro al hacer focus y hover */
+    border-color: #990000; /* borde más oscuro */
+	box-shadow: 0 0 7px rgba(255, 77, 77, 0.5); /* Agrega sombra */
+}

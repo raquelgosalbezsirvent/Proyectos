@@ -1,0 +1,131 @@
+/* Estilos generales del header */
+header {
+    background-color: #eee; /* Color de fondo */
+    border-bottom: 1px solid #ddd; /* Línea inferior */
+	position: relative; /* Para alinear elementos dentro del header */
+    text-align: center; /* Centra el texto del encabezado */
+}
+
+/* Contenedor principal para el logo y el título */
+.cabecera {
+	font-family: fantasy, serif;
+	font-size: 1.4em;
+    display: flex; /* Flexbox para alinear el logo y el título */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+}
+
+/* Contenedor para el logo */
+.logo {
+	width: 25%; /* Ocupa el 20% de la anchura de la pantalla */
+}
+
+/* Estilos para el logo */
+.logo img {
+    margin-righ: 20px; /* Espacio entre el logo y el título */
+	max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
+	height: auto; /* Ajuste automático de altura */
+}
+
+/* Estilos para el nombre de la página */
+.titulo {
+    flex-grow: 1; /* Permite que el nombre de la página ocupe el espacio disponible */
+	position: absolute; /* Permite centrar el título */
+    left: 50%; /* Coloca el título en el centro horizontal */
+    transform: translateX(-50%); /* Ajusta el título para que esté centrado */
+} 
+
+.titulo h1 {
+    margin: 0; /* Elimina márgenes */
+    font-size: 1.8em; /* Tamaño del texto */		
+	text-align: center; /* Centra el texto del título */
+}
+
+/*Estilos de las migas de pan */
+.migas {
+	text-align: left;
+	margin-left: 20px;
+}
+
+
+/* Estilos generales del cuerpo */
+body {
+	font-family: "Constantia", serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+	padding: 10px;
+}
+
+/* Estilos para los encabezados */
+h1, h2, h3, h4 {
+    color: #002851;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2em;
+	text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3, h4 {
+    font-size: 1.2em;
+}
+
+/* Estilos de enlaces */
+a {
+    color: #00539C;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #002851;
+    text-decoration: underline;
+}
+
+/* Visibilidad del foco en los enlaces */
+a:focus, button:focus {
+    outline: 2px solid #D17E5A;
+    background-color: #FD987E;
+} 
+
+/* Estilos generales del footer */
+footer {
+	position: relative; /* Para alinear elementos dentro del header */
+}
+
+
+/* Contenedor principal para el logo y el pie */
+.pie {
+    display: flex; /* Flexbox para alinear el logo y el título */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda */
+}
+
+/* Contenedor para el logo */
+.logo-secundario {
+	width: 15%; /* Ocupa el 15% de la anchura de la pantalla */
+}
+
+/* Estilos para el logo */
+.logo-secundario img {
+	max-width: 100%; /* La imagen no excederá el ancho de su contenedor */
+	height: auto; /* Ajuste automático de altura */
+}
+
+/* Estilos para el pie */
+.texto-pie {
+    flex-grow: 1; /* Permite que el nombre de la página ocupe el espacio disponible */
+	position: absolute; /* Permite centrar el título */
+    left: 50%; /* Coloca el título en el centro horizontal */
+    transform: translateX(-50%); /* Ajusta el título para que esté centrado */
+} 
+
+.texto-pie p {
+    margin: 0; /* Elimina márgenes */
+    color: #00539C; /* Color del texto */
+	text-align: center; /* Centra el texto del título */

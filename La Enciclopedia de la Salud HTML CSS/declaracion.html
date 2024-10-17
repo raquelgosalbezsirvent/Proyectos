@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Declaración de Accesibilidad">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+	
+    <title>Declaración de Accesibilidad | Mini Enciclopedia de la Salud</title>
+	
+	<link rel="stylesheet" href="css/general.css" />
+    <link rel="stylesheet" href="css/navegacion.css" />
+	<link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+	 <header>
+		<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+		<div class="cabecera">
+			<div class="logo">
+				<a href="index.html"><img src="imagenes/logo_principal.jpg" alt="" width="400" height="200"></a>
+			</div>
+			<div class="titulo">
+				<h1>Mini Enciclopedia de la Salud</h1>
+			</div>
+		</div>
+		
+		<div>
+			<nav>
+				<ul>
+					<li><a href="mapadelsitio.html">Mapa del Sitio</a></li>
+					<li><a href="index.html#Temas_destacados">Temas destacados</a></li>
+					<li><a href="formularios/buscador.html">Búsqueda de artículos</a></li>
+					<li><a href="formularios/encuesta.html">Encuesta anónima del usuario</a></li>
+					<li><a href="declaracion.html">Declaración de Accesibilidad</a></li>
+					<li><a href="formularios/contacto.html">Contacto</a></li>
+				</ul>
+			</nav>
+		</div>
+		<p class="migas"><a href="index.html">Inicio</a> &#8594; <a href="declaracion.html">Declaración de Accesibilidad</a></p>
+    </header>
+
+    <main class="columnas" id="main-content">
+		<div class="col">
+			<h2>Identificación del idioma principal</h2>
+			<p>Esta página web está diseñada para garantizar que todos los elementos están correctamente identificados, incluyendo el idioma principal del documento. 
+			El atributo <code>lang="es"</code> está configurado en la etiqueta <code>&lt;html&gt;</code> para que los navegadores, lectores de pantalla y motores de búsqueda 
+			puedan interpretar correctamente el contenido en español.</p>
+
+			<h2>Etiquetado semántico</h2>
+			<p>Se ha hecho uso correcto de las etiquetas HTML5 semánticas como <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, y 
+			<code>&lt;footer&gt;</code>, para proporcionar una estructura clara de la página. Esto facilita la navegación y mejora la accesibilidad para personas que 
+			utilizan tecnologías de asistencia, como lectores de pantalla. También ayuda a los motores de búsqueda a entender mejor la estructura del contenido.</p>
+		</div>
+		
+		<div class="col">
+			<h2>Texto alternativo de las imágenes</h2>
+			<p>Todas las imágenes presentes en esta página incluyen un atributo <code>alt</code> que describe de manera concisa el contenido visual. Esto garantiza que los usuarios 
+			que no pueden ver las imágenes, ya sea por el uso de un lector de pantalla o por problemas de conexión, puedan comprender el contenido de la página.</p>
+
+			<h2>Mecanismos de navegación implementados</h2>
+			<p>Se han implementado diversos mecanismos de navegación accesibles:</p>
+			<ul>
+				<li>Enlaces con descripciones claras. odos los enlaces están correctamente etiquetados para describir el destino o acción a realizar, sin ambigüedades como "haz clic aquí".</li>
+				<li>Menús de navegación accesibles. Los menús de navegación están diseñados para ser accesibles mediante teclado, permitiendo a los usuarios navegar por los enlaces con la tecla <code>Tab</code> y seleccionarlos con <code>Enter</code>.</li>
+				<li>Saltar al contenido principal. Se ha añadido un enlace para saltar al contenido de la página principal al principio y al final de la página para usuarios de teclado y lectores de pantalla, que les permite saltar directamente sin tener que navegar por el menú de navegación.</li>
+			</ul>
+		</div>
+		
+		<div class="col">
+			<h2>Otras características de accesibilidad</h2>
+			<p>Algunas de las características adicionales implementadas para mejorar la accesibilidad incluyen:</p>
+			<ul>
+				<li><strong>Tablas accesibles. </strong>Las tablas utilizan adecuadamente las etiquetas <code>&lt;th&gt;</code> para los encabezados de fila y columna, y los elementos <code>&lt;caption&gt;</code> para describir el contenido de la tabla, lo que mejora la comprensión del contenido para los usuarios de tecnologías de asistencia.</li>
+				<li><strong>Formularios accesibles.</strong> Se han proporcionado etiquetas <code>&lt;label&gt;</code> para cada campo de los formularios de la web, lo cual es esencial para que los usuarios que usan tecnología asistiva comprendan la función de cada campo.</li>
+				<li><strong>Abreviaturas con descripción.</strong> Cada abreviatura que aparece en la web posee una etiqueta <code>&lt;title&gt;</code> que permite mostrar una descripción de la abreviación utilizada.</li>
+				<li><strong>Uso de títulos estructurados.</strong> Los títulos (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, etc.) se han utilizado de manera jerárquica y lógica para organizar la información y hacerla más accesible para usuarios de lectores de pantalla.</li>
+			</ul>
+		</div>
+    </main>
+
+    <footer>
+	<div class="pie">
+        <div class="logo-secundario">
+			<a href="index.html"><img src="imagenes/logo.jpg" alt="" width="100" height="100"></a>
+		</div>
+		<div class="texto-pie">
+			<p>&copy; 2024 Mini Enciclopedia de la Salud. Creado por Raquel Gosalbez Sirvent y Guillermo Varela Carbajal.</p>
+		</div>
+	</div>
+	</footer>
+
+</body>
+</html>
